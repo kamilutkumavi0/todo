@@ -2,6 +2,7 @@
 mod days;
 use days::days_in_month;
 use core::cmp::Ordering;
+use std::fmt;
 
 fn split(input: String) -> (i32, i32, i32){
     let mut day = String::new();
@@ -98,7 +99,11 @@ impl PartialOrd for TodoDate{
         true
     }
 }
-
+impl fmt::Display for TodoDate {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "({}/{}/{})", self.day, self.month, self.year)
+    }
+}
 impl TodoDate{
     /// Creates a new todo date structure
     pub fn new(day: i32, month: i32, year: i32) -> Result<Self, TodoDateError> {

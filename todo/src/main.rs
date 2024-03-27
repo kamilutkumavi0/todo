@@ -1,6 +1,7 @@
 use file_format::read::read_todo;
 use todo_structure::todo::Todo;
 use todo::splitter::split_line;
+use todo_output::todo_vec_print;
 fn main() {
     let text = read_todo();
     let mut todo_vec: Vec<Todo> = Vec::new();
@@ -9,5 +10,5 @@ fn main() {
         let todo = Todo::from(i);
         todo_vec.push(todo);
     }
-    dbg!(todo_vec);
+    todo_vec_print(todo_vec);
 }

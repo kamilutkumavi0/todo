@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 file-format = { path = "../file-format"}
 todo-structure = { path = "../todo-structure"}
+todo-output = { path = "../todo-output" }
