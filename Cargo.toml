@@ -1,0 +1,8 @@
+[workspace]
+members = [
+  "file-format",
+  "todo",
+  "todo-cli",
+  "todo-output",
+  "todo-structure",
+]
