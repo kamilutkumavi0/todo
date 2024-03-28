@@ -1,4 +1,4 @@
-use todo_structure::{todo::{Todo, TodoStatus},date::TodoDate};
+use todo_structure::todo::{Todo, TodoStatus};
 use colored::Colorize;
 
 pub fn todo_print(todo: Todo){

@@ -33,7 +33,7 @@ fn split(text: String) -> Vec<String>{
 /// let todo_status = TodoStatus::Done;
 /// println!("{:?}", todo_status);
 /// ```
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum TodoStatus{
     NotStarted,
     Continue,
@@ -41,7 +41,7 @@ pub enum TodoStatus{
 }
 
 /// TodoError is a enumarate of the Todo structure's error
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum TodoError{
     WrongOrderDate,
     NoName,
@@ -55,7 +55,7 @@ pub enum TodoError{
 /// use todo_structure::date::TodoDate;
 /// Todo{ name: "name".to_string(),  description: Some("description".to_string()), start_date: Some(TodoDate::new( 1, 4, 1999).unwrap()), finish_date: Some(TodoDate::new(1, 4, 2000).unwrap()), status: Some(TodoStatus::Done)};
 ///```
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub struct Todo{
     pub name: String,
     pub description: Option<String>,

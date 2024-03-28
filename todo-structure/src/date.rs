@@ -27,7 +27,7 @@ fn split(input: String) -> (i32, i32, i32){
 }
 
 /// TodoDate Error enum for checking user input
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub enum TodoDateError{
     InCorrectDay,
     InCorrectMonth,
@@ -35,7 +35,7 @@ pub enum TodoDateError{
 }
 
 /// Creates a todo date for todo structure
-#[derive(PartialEq, Debug, Eq, Ord)]
+#[derive(PartialEq, Debug, Eq, Ord, Clone)]
 pub struct TodoDate{
     pub day: i32,
     pub month: i32,

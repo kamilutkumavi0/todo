@@ -15,6 +15,9 @@ dependencies = [
 [[package]]
 name = "file-format"
 version = "0.1.0"
+dependencies = [
+ "todo-structure",
+]
 
 [[package]]
 name = "lazy_static"
