@@ -101,7 +101,7 @@ impl PartialOrd for TodoDate{
 }
 impl fmt::Display for TodoDate {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "({}/{}/{})", self.day, self.month, self.year)
+        write!(f, "{}/{}/{}", self.day, self.month, self.year)
     }
 }
 impl TodoDate{
