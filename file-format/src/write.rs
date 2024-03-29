@@ -1,7 +1,7 @@
 use std::fs::write;
 use todo_structure::todo::{Todo, TodoStatus};
 
-pub fn write_todo(todo_vec: Vec<Todo>){
+pub fn write_todo(path: String, todo_vec: Vec<Todo>){
     let mut todo_string = String::new();
     for todo in todo_vec{
         todo_string.push('[');
@@ -56,5 +56,5 @@ pub fn write_todo(todo_vec: Vec<Todo>){
         todo_string.push(']');
         todo_string.push('\n');
     }
-    let _ = write("./deneme.todo", todo_string.as_bytes());
+    let _ = write(path, todo_string.as_bytes());
 }

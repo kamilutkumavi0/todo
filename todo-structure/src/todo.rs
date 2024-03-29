@@ -84,12 +84,29 @@ impl Todo{
         Ok(Self{name, description, start_date, finish_date, status})
     }
     pub fn from(text: String) -> Self{
+
         let element_vec: Vec<String> = split(text);
+        let start_date = if element_vec[2].clone() == String::from(" "){
+            None
+        } else {
+            match TodoDate::from_string(element_vec[2].clone()){
+                Ok(o) => Some(o),
+                Err(_) => None,
+            }
+        };
+        let finish_date = if element_vec[2].clone() == String::from(" "){
+            None        
+        } else {
+            match TodoDate::from_string(element_vec[3].clone()){
+                Ok(o) => Some(o),
+                Err(_) => None,
+            }
+        };
         Self{
             name: element_vec[0].clone(),
             description: Some(element_vec[1].clone()),
-            start_date: Some(TodoDate::from_string(element_vec[2].clone()).unwrap()),
-            finish_date: Some(TodoDate::from_string(element_vec[3].clone()).unwrap()),
+            start_date,
+            finish_date,
             status: match element_vec[4].clone().as_str() {
                 "Done" => Some(TodoStatus::Done),
                 "NotStarted" => Some(TodoStatus::NotStarted),

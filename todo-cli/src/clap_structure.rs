@@ -5,7 +5,7 @@ use clap::{Parser, Args, Subcommand, ValueEnum};
 pub struct Todo{
     #[command(subcommand)]
     pub sub_command: Option<Subs>,
-    #[arg(default_value_t=String::from("./"))]    
+    #[arg(default_value_t=String::from("./todo.td"))]    
     pub path: String,
 }
 #[derive(Subcommand, Debug)]
@@ -13,6 +13,7 @@ pub enum Subs{
     Add(AddArgs),
     Update(UpdateArgs),
     Del(DelArgs),
+    Init,
 }
 
 #[derive(Args, Debug)]
