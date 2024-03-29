@@ -19,7 +19,7 @@ pub enum Subs{
 pub struct UpdateArgs{
     pub name: String,
     #[arg(long, short = 'S', value_enum,default_value_t=Status::NotStarted)]
-    status: Status,
+    pub status: Status,
 }
 
 #[derive(Args, Debug)]
