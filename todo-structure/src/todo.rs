@@ -94,7 +94,7 @@ impl Todo{
                 Err(_) => None,
             }
         };
-        let finish_date = if element_vec[2].clone() == String::from(" "){
+        let finish_date = if element_vec[3].clone() == String::from(" "){
             None        
         } else {
             match TodoDate::from_string(element_vec[3].clone()){

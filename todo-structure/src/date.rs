@@ -23,6 +23,7 @@ fn split(input: String) -> (i32, i32, i32){
             year.push(i)
         }
     }
+    println!("{day}/{month}/{year}");
     (day.parse::<i32>().unwrap(), month.parse::<i32>().unwrap(), year.parse::<i32>().unwrap())
 }
 
