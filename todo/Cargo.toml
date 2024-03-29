@@ -9,3 +9,4 @@ edition = "2021"
 file-format = { path = "../file-format"}
 todo-structure = { path = "../todo-structure"}
 todo-output = { path = "../todo-output" }
+todo-cli = { path = "../todo-cli" }

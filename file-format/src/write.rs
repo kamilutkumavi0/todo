@@ -1,7 +1,4 @@
-use std::fs::File;
-// use std::io::BufReader;
 use std::fs::write;
-use std::io::Write;
 use todo_structure::todo::{Todo, TodoStatus};
 
 pub fn write_todo(todo_vec: Vec<Todo>){
@@ -59,7 +56,5 @@ pub fn write_todo(todo_vec: Vec<Todo>){
         todo_string.push(']');
         todo_string.push('\n');
     }
-    let mut file = File::open("./deneme.todo").unwrap();
-    // write!(file,"{}", todo_string);
-    write("./deneme.todo", todo_string.as_bytes());
+    let _ = write("./deneme.todo", todo_string.as_bytes());
 }
