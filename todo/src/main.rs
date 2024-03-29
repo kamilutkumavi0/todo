@@ -6,13 +6,13 @@ use todo_cli::parse_it;
 
 fn main() {
     parse_it();
-    // let text = read_todo();
-    // let mut todo_vec: Vec<Todo> = Vec::new();
-    // let o = split_line(text);
-    // for i in o{
-    //     let todo = Todo::from(i);
-    //     todo_vec.push(todo);
-    // }
-    // todo_vec_print(todo_vec.clone());
-    // write_todo(todo_vec);
+    let text = read_todo();
+    let mut todo_vec: Vec<Todo> = Vec::new();
+    let o = split_line(text);
+    for i in o{
+        let todo = Todo::from(i);
+        todo_vec.push(todo);
+    }
+    todo_vec_print(todo_vec.clone());
+    write_todo(todo_vec);
 }

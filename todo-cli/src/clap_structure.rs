@@ -4,49 +4,50 @@ use clap::{Parser, Args, Subcommand, ValueEnum};
 #[command(version, about)]
 pub struct Todo{
     #[command(subcommand)]
-    sub_command: Option<Subs>,
-    path: String,
+    pub sub_command: Option<Subs>,
+    #[arg(default_value_t=String::from("./"))]    
+    pub path: String,
 }
 #[derive(Subcommand, Debug)]
 pub enum Subs{
-    Create(CreateArgs),
+    Add(AddArgs),
     Update(UpdateArgs),
-    Delete(DeleteArgs),
+    Del(DelArgs),
 }
 
 #[derive(Args, Debug)]
-struct UpdateArgs{
-    name: String,
+pub struct UpdateArgs{
+    pub name: String,
     #[arg(long, short = 'S', value_enum,default_value_t=Status::NotStarted)]
     status: Status,
 }
 
 #[derive(Args, Debug)]
-struct DeleteArgs{
-    name: String,
+pub struct DelArgs{
+    pub name: String,
 }
 
 
 
 #[derive(Args, Debug)]
-struct CreateArgs{
-    name: String,
+pub struct AddArgs{
+    pub name: String,
     
     #[arg(long, short)]
-    description: Option<String>,
+    pub description: Option<String>,
 
     #[arg(long, short)]
-    start_date: Option<String>,
+    pub start_date: Option<String>,
 
     #[arg(long, short)]
-    finish_date: Option<String>,
+    pub finish_date: Option<String>,
     
     #[arg(long, short = 'S', value_enum,default_value_t=Status::NotStarted)]
-    status: Status,
+    pub status: Status,
 }
 
 #[derive(ValueEnum, Debug, Clone)]
-enum Status{
+pub enum Status{
     NotStarted,
     Continue,
     Done,
