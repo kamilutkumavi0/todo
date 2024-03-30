@@ -38,12 +38,28 @@ pub mod basics{
         todo_vec
     }
     
-    pub fn delete_todo(){
-        
+    pub fn delete_todo(path: String, name: String){
+        let mut todo_vec = file_to_todo(&path);
+        for (i, todo) in todo_vec.clone().into_iter().enumerate(){
+            if todo.name == name{
+                todo_vec.remove(i);
+                break;
+            }
+        }
+        write_todo(path, todo_vec);
     }
 
-    pub fn update_todo(){
-        
+    pub fn update_todo(path: String, name: String, status: Option<TodoStatus>){
+        let mut todo_vec = file_to_todo(&path);
+        for (i, todo) in todo_vec.clone().into_iter().enumerate(){
+            if todo.name == name{
+                let mut update_todo = todo_vec.remove(i);
+                update_todo.status = status;
+                todo_vec.insert(i, update_todo);
+                break;
+            }
+        }
+        write_todo(path, todo_vec);
     }
 
     pub fn add_todo(path: String, name: String, description: Option<String>, start_date: Option<String>, finish_date: Option<String>, status: TodoStatus){

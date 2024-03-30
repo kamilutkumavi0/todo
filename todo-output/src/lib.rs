@@ -3,9 +3,9 @@ use colored::Colorize;
 
 pub fn todo_print(todo: Todo){
     match todo.status{
-        Some(TodoStatus::NotStarted) => print!("{} ", "-".red()),
-        Some(TodoStatus::Continue) => print!("{} ", "!".yellow()),
-        Some(TodoStatus::Done) => print!("{} ", "+".green()),
+        Some(TodoStatus::NotStarted) => print!("{} ", "✖".red()),
+        Some(TodoStatus::Continue) => print!("{} ", "⧗".yellow()),
+        Some(TodoStatus::Done) => print!("{} ", "✔".green()),
         None => print!("  "),
     }
     print!("{} ", todo.name.bold());
