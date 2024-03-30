@@ -15,12 +15,18 @@ pub fn todo_print(todo: Todo){
                             None => String::new(),
                     };
     print!("{} ", description.bright_blue());
-    match todo.start_date{
+    match todo.start_date.clone(){
         Some(date) => print!("{} -> ", date),
         None => print!(" "),
     };
     match todo.finish_date{
-        Some(date) => print!("{} ", date),
+        Some(date) => {
+            if todo.start_date == None{
+                print!("-> {} ", date)            
+            } else {
+                print!("{} ", date)          
+            }
+        },
         None => print!(" "),
     };
     println!("");

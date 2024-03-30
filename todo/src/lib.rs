@@ -81,4 +81,9 @@ pub mod basics{
         let todo_vec = file_to_todo(&path);
         todo_vec_print(todo_vec.clone());
     }
+
+    pub fn init_todo(){
+        let new: Vec<Todo> = Vec::new();
+        write_todo(String::from("./todo.td"), new);
+    }
 }

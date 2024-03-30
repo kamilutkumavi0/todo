@@ -1,5 +1,5 @@
-use todo_cli::{parse_it, clap_structure::{Status, AddArgs, DelArgs, UpdateArgs, Subs, Todo}};
-use crate::basics::{print_todo, add_todo, delete_todo, update_todo};
+use todo_cli::{parse_it, clap_structure::{Status, Subs}};
+use crate::basics::{print_todo, add_todo, delete_todo, update_todo, init_todo};
     use todo_structure::{todo::TodoStatus};
 pub fn user_input(){
     let parsed_arg = parse_it();
@@ -25,7 +25,7 @@ pub fn user_input(){
             };
             update_todo(path, arg.name, Some(status));
         },
-        Some(Subs::Init) => todo!(),
+        Some(Subs::Init) => init_todo(),
         None => print_todo(path),
     } 
 }
