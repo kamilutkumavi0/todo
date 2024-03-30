@@ -64,17 +64,25 @@ pub mod basics{
 
     pub fn add_todo(path: String, name: String, description: Option<String>, start_date: Option<String>, finish_date: Option<String>, status: TodoStatus){
         let mut todo_vec = file_to_todo(&path);
-        let start_date = match start_date{
-            Some(i) => Some(TodoDate::from_string(i).unwrap()),
-            None => None,
-        };
-        let finish_date = match finish_date{
-            Some(i) => Some(TodoDate::from_string(i).unwrap()),
-            None => None,
-        };
-        let new = Todo::new(name, description, start_date, finish_date, Some(status)).unwrap();
-        todo_vec.push(new);
-        write_todo(path, todo_vec);
+        let mut addable = true;
+        for i in todo_vec.clone(){
+            if i.name == name{
+                addable = false;
+            }
+        } 
+        if addable{
+            let start_date = match start_date{
+                Some(i) => Some(TodoDate::from_string(i).unwrap()),
+                None => None,
+            };
+            let finish_date = match finish_date{
+                Some(i) => Some(TodoDate::from_string(i).unwrap()),
+                None => None,
+            };
+                let new = Todo::new(name, description, start_date, finish_date, Some(status)).unwrap();
+                todo_vec.push(new);
+                write_todo(path, todo_vec);
+            }
     }
 
     pub fn print_todo(path: String){
